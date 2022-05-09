@@ -11,12 +11,13 @@ import { usersActions } from '../store/slices/user.slice';
 
 const AppRouter = () => {
   let uid = localStorage.getItem('uid');
+  let amount = localStorage.getItem('amount');
   const { isAuth } = useSelector(state => state.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(usersActions.login(uid));
-  }, [uid, dispatch, isAuth]);
+    dispatch(usersActions.login({ uid, amount }));
+  }, [uid, dispatch, isAuth, amount]);
 
   return (
     <BrowserRouter>

@@ -26,6 +26,7 @@ const register = async (req, res = response) => {
             ok: true,
             name: user.name,
             uid: user.id,
+            amount: user.amount
         })
 
     } catch (error) {
@@ -59,7 +60,8 @@ const login = async (req, res = response) => {
             ok: 'true',
             msg: 'successfully authenticated user',
             uid: user.id,
-            name: user.name
+            name: user.name,
+            amount: user.amount
         })
 
 

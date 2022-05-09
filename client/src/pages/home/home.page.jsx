@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 // Components
 import TransferForm from '../../components/transfers/transfer-form/transfer-form.component';
@@ -9,6 +10,8 @@ import classes from './home.module.css';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const { amount } = useSelector(state => state.users.user);
 
   const hideModalHandler = () => {
     setShowModal(false);
@@ -22,7 +25,7 @@ const Home = () => {
     <div className={classes.container}>
       <div className={classes['transaction-container']}>
         <p>Need to send money? Click this button!</p>
-        <p>Available amount: $500.00</p>
+        <p>Available amount: ${amount}</p>
         <Button onClick={showModalHandler}>New transfer</Button>
       </div>
 
