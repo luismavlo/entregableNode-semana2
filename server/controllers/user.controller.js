@@ -86,7 +86,7 @@ const getHistory = async (req, res = response) => {
 
         const transfer = await Transfer.findAll({
             where: { senderUserId: id },
-            include: [{ model: User, where: { id: trans.receiverUserId } }]
+            include: [{ model: User }]
         })
 
         transfer.forEach(trans => {
